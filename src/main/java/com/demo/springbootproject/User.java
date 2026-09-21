@@ -1,5 +1,5 @@
 package com.demo.springbootproject;
-
+import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -26,6 +26,9 @@ public class User {
     private String email;
 
     @NotBlank
-    @Size(min = 8)
+    @Size(min = 12)
     private String password;
+
+    private LocalDateTime createdAt;
+    
 }
