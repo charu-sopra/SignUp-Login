@@ -18,7 +18,7 @@ public class SignUpRequestDTO {
     @Email
     @NotBlank(message="Sopra Steria email is required ")
     @Pattern
-    (regexp = "^[A-Za-z0-9._%+-]+@mycompany\\.com$",
+    (regexp = "^[A-Za-z0-9._%+-]+@soprasteria\\.com$",
     message = "Please use your company email address")
     private String email;
     
