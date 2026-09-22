@@ -29,4 +29,9 @@ public class AuthController {
             loginRequestDTO.getPassword()
         );
     }
+
+    @PostMapping("/logout")
+    public String logout() {
+        return "Logout successful";
+    }
 }
