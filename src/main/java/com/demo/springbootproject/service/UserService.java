@@ -4,6 +4,8 @@ import com.demo.springbootproject.dto.SignUpRequestDTO;
 import com.demo.springbootproject.dto.SignUpResponseDTO;
 import com.demo.springbootproject.repository.UserRepository;
 
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,6 +23,7 @@ public class UserService {
         user.setName(signUpRequestDTO.getName());
         user.setEmail(signUpRequestDTO.getEmail());
         user.setPassword(signUpRequestDTO.getPassword());
+        user.setCreatedAt(LocalDateTime.now());
 
         
 
@@ -29,7 +32,8 @@ public class UserService {
         return new SignUpResponseDTO(
                 savedUser.getId(),
                 savedUser.getName(),
-                savedUser.getEmail()
+                savedUser.getEmail(),
+                savedUser.getCreatedAt()
         );
     }
 }
