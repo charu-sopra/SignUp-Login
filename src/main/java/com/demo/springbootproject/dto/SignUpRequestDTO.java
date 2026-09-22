@@ -19,6 +19,6 @@ public class SignUpRequestDTO {
     private String email;
 
     @NotBlank
-    @Size(min = 12)
+    // @Size(min = 12)
     private String password;
 }
