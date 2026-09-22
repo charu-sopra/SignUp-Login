@@ -1,4 +1,4 @@
-package com.demo.springbootproject;
+package com.demo.springbootproject.Entity;
 import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ import lombok.Setter;
 @Entity
 @Getter 
 @Setter 
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue
