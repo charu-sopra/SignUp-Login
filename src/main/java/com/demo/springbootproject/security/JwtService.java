@@ -7,7 +7,7 @@ import javax.crypto.SecretKey;
 
 import org.springframework.stereotype.Service;
 
-import com.demo.springbootproject.User;
+import com.demo.springbootproject.Entity.UserEntity;
 
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -22,7 +22,7 @@ public class JwtService {
         this.secretKey = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }
 
-    public String generateTokens(User user) {
+    public String generateTokens(UserEntity user) {
         Date now = new Date();
         Date expiry = new Date(System.currentTimeMillis() + 1000L * 60 * 60); // shift time to config.
 

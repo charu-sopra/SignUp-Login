@@ -1,7 +1,7 @@
 package com.demo.springbootproject.service;
 
 import com.demo.springbootproject.dto.LoginResponseDTO;
-import com.demo.springbootproject.User;
+import com.demo.springbootproject.Entity.UserEntity;
 import com.demo.springbootproject.repository.UserRepository;
 import com.demo.springbootproject.security.JwtService;
 
@@ -28,7 +28,7 @@ public class AuthService {
     public LoginResponseDTO login(String email, String password) {
 
         // 1. Find user by email
-        User user = userRepository.findByEmail(email)
+        UserEntity user = userRepository.findByEmail(email)
                 .orElseThrow(() ->
                         new RuntimeException("User not found"));
 
