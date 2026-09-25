@@ -22,10 +22,19 @@ public class UserService {
 
     public SignUpResponseDTO saveUser(SignUpRequestDTO signUpRequestDTO) {
         UserEntity user = new UserEntity();
+
+        if(!signUpRequestDTO.getConfirmPassword().equals(signUpRequestDTO.getPassword())){
+            throw new IllegalArgumentException("Passwords do not match");        }
+
         String encodedPassword = passwordEncoder.encode(signUpRequestDTO.getPassword());
 
-
-        user.setName(signUpRequestDTO.getName());
+        user.setEmployeeId(signUpRequestDTO.getEmployeeId());
+        user.setFirstName(signUpRequestDTO.getFirstName());
+        user.setLastName(signUpRequestDTO.getLastName());
+        user.setMiddleName(signUpRequestDTO.getMiddleName());
+        user.setPhoneNo(signUpRequestDTO.getPhoneNo());
+        user.setDesignation(signUpRequestDTO.getDesignation());
+        user.setUserRole(signUpRequestDTO.getUserRole());
         user.setEmail(signUpRequestDTO.getEmail());
         user.setPassword(encodedPassword);        
         user.setCreatedAt(LocalDateTime.now());
@@ -35,10 +44,16 @@ public class UserService {
         UserEntity savedUser = userRepository.save(user);
 
         return new SignUpResponseDTO(
-                savedUser.getId(),
-                savedUser.getName(),
-                savedUser.getEmail(),
-                savedUser.getCreatedAt()
-        );
+        savedUser.getId(),
+        savedUser.getEmployeeId(),
+        savedUser.getFirstName(),
+        savedUser.getMiddleName(),
+        savedUser.getLastName(),
+        savedUser.getPhoneNo(),
+        savedUser.getEmail(),
+        savedUser.getDesignation(),
+        savedUser.getUserRole(),
+        savedUser.getCreatedAt()
+);
     }
 }
