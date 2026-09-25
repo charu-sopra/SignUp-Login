@@ -1,4 +1,5 @@
 package com.demo.springbootproject.controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.demo.springbootproject.dto.SignUpRequestDTO;
 import com.demo.springbootproject.dto.SignUpResponseDTO;
 import com.demo.springbootproject.service.UserService;
@@ -6,11 +7,12 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     private final UserService userService; // controller to service
 
-    //QAutowired
+    //QAutowired 
     public UserController(UserService userService) {
         this.userService = userService;
     }
